@@ -30,8 +30,8 @@ const WeatherCard = ({ weatherData }) => {
               <span className="detail-value">{weatherData.humidity}%</span>
             </div>
             <div className="detail-item">
-              <span className="detail-label">Wind Speed</span>
-              <span className="detail-value">{weatherData.windSpeed} km/h</span>
+              <span className="detail-label">Wind</span>
+              <span className="detail-value">{weatherData.windSpeed} km/h {weatherData.windDirection}</span>
             </div>
           </div>
 
@@ -51,6 +51,10 @@ const WeatherCard = ({ weatherData }) => {
               <span className="detail-label">Clouds</span>
               <span className="detail-value">{weatherData.clouds}%</span>
             </div>
+            <div className="detail-item">
+              <span className="detail-label">Dew Point</span>
+              <span className="detail-value">{weatherData.dewPoint}°C</span>
+            </div>
           </div>
 
           <div className="sun-times">
@@ -62,6 +66,10 @@ const WeatherCard = ({ weatherData }) => {
               <span className="time-label">Sunset</span>
               <span className="time-value">{weatherData.sunset}</span>
             </div>
+          </div>
+          
+          <div className="last-updated">
+            Last updated: {weatherData.lastUpdated}
           </div>
         </div>
       </div>
