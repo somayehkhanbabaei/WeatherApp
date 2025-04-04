@@ -1,9 +1,14 @@
 import React from 'react';
 import WeatherCard from './WeatherCard';
 import ForecastCard from './ForecastCard';
+import LoadingSpinner from './LoadingSpinner';
 import './WeatherDisplay.css';
 
-const WeatherDisplay = ({ weatherData, forecastData }) => {
+const WeatherDisplay = ({ weatherData, forecastData, loading }) => {
+  if (loading) {
+    return <LoadingSpinner message="Fetching weather data..." />;
+  }
+
   if (!weatherData) {
     return (
       <div className="weather-display">
@@ -18,14 +23,17 @@ const WeatherDisplay = ({ weatherData, forecastData }) => {
   return (
     <div className="weather-display">
       <WeatherCard weatherData={weatherData} />
-      
       {forecastData && forecastData.length > 0 && (
-        <div className="forecast-container">
-          <h3>5-Day Forecast</h3>
-          <div className="forecast-list">
-            {forecastData.map((day, index) => (
-              <ForecastCard key={index} forecast={day} />
-            ))}
+        <div className="forecast-section">
+          <div className="forecast-header">
+            <h2>5-Day Forecast</h2>
+          </div>
+          <div className="forecast-scroll-container">
+            <div className="forecast-container">
+              {forecastData.map((day, index) => (
+                <ForecastCard key={index} forecast={day} />
+              ))}
+            </div>
           </div>
         </div>
       )}

@@ -1,4 +1,5 @@
 import React from 'react';
+import WeatherIcon from './WeatherIcon';
 import './ForecastCard.css';
 
 const ForecastCard = ({ forecast }) => {
@@ -9,12 +10,11 @@ const ForecastCard = ({ forecast }) => {
   return (
     <div className="forecast-card">
       <div className="forecast-date">{dayOfWeek}</div>
-      <div className="forecast-icon">
-        <img 
-          src={`http://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
-          alt={forecast.description}
-        />
-      </div>
+      <WeatherIcon 
+        icon={forecast.icon} 
+        description={forecast.description} 
+        size="small"
+      />
       <div className="forecast-temp">
         <span className="max-temp">{forecast.maxTemp}°</span>
         <span className="min-temp">{forecast.minTemp}°</span>

@@ -1,38 +1,101 @@
 .weather-display {
-  margin-top: 20px;
-  min-height: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.forecast-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.forecast-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.forecast-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.forecast-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  border-radius: 3px;
+}
+
+.forecast-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #f0f0f0;
+}
+
+.forecast-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.forecast-scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+.forecast-scroll-container::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 3px;
+}
+
+.forecast-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+.forecast-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  min-width: min-content;
 }
 
 .empty-state {
   text-align: center;
   padding: 40px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .empty-state p {
-  color: #666;
-  font-size: 18px;
+  color: #2c3e50;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
 .empty-state-icon {
-  font-size: 48px;
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
 }
 
-.forecast-container {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .forecast-container h3 {

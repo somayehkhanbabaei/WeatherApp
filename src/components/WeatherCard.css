@@ -1,29 +1,77 @@
 .weather-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 24px;
+  background: linear-gradient(135deg, #2196F3, #4CAF50);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 500px;
+  margin: 20px 0;
+  animation: slideIn 0.5s ease-out;
 }
 
-.weather-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 20px;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.weather-header h2 {
-  color: #333;
-  margin: 0;
+.weather-card h2 {
+  margin: 0 0 10px 0;
   font-size: 24px;
 }
 
+.weather-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.weather-detail {
+  text-align: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.weather-detail:hover {
+  transform: translateY(-5px);
+}
+
+.weather-detail p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.weather-detail .value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .weather-icon {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .temperature {

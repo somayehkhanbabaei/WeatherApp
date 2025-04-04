@@ -3,11 +3,41 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .weather-app h1 {
-  color: #333;
+  color: #2c3e50;
   margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.weather-app h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .error {
@@ -16,6 +46,19 @@
   padding: 10px;
   background-color: #ffebee;
   border-radius: 4px;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
 }
 
 .loading {

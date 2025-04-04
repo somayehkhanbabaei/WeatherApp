@@ -1,4 +1,5 @@
 import React from 'react';
+import WeatherIcon from './WeatherIcon';
 import './WeatherCard.css';
 
 const WeatherCard = ({ weatherData }) => {
@@ -6,10 +7,10 @@ const WeatherCard = ({ weatherData }) => {
     <div className="weather-card">
       <div className="weather-header">
         <h2>{weatherData.city}, {weatherData.country}</h2>
-        <img 
-          src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-          alt={weatherData.description}
-          className="weather-icon"
+        <WeatherIcon 
+          icon={weatherData.icon} 
+          description={weatherData.description} 
+          size="large"
         />
       </div>
       

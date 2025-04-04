@@ -177,8 +177,11 @@ const WeatherApp = () => {
       <h1>Weather App</h1>
       <SearchBar onSearch={handleSearch} initialValue={lastSearchedCity} />
       {error && <div className="error">{error}</div>}
-      {loading && <div className="loading">Loading weather data...</div>}
-      <WeatherDisplay weatherData={weatherData} forecastData={forecastData} />
+      <WeatherDisplay 
+        weatherData={weatherData} 
+        forecastData={forecastData} 
+        loading={loading}
+      />
     </div>
   );
 };
