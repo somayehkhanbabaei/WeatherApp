@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import "./WeatherMain.css";
 
 function WeatherMain({ weather, forecast, loading, error }) {
@@ -6,14 +6,15 @@ function WeatherMain({ weather, forecast, loading, error }) {
     return new Date(ts * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   }
 
-  // Get the next 12 forecast slots from now onward
-  const now = new Date();
-  const hourlySlots =
-    forecast && Array.isArray(forecast.list)
+  // Memoize the next 12 forecast slots from now onward
+  const now = useMemo(() => new Date(), []);
+  const hourlySlots = useMemo(() => {
+    return forecast && Array.isArray(forecast.list)
       ? forecast.list.filter(
           h => new Date(h.dt * 1000) >= now
         ).slice(0, 12)
       : [];
+  }, [forecast, now]);
 
   // Scroll logic for arrows
   const listRef = useRef(null);
