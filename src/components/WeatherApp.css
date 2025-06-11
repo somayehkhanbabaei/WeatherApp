@@ -78,4 +78,12 @@
   100% {
     opacity: 0.6;
   }
-} 
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: #181e2a;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}

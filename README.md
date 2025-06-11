@@ -1,3 +1,27 @@
+# Weather App
+
+## Setup
+
+1. Sign up at [OpenWeatherMap](https://openweathermap.org/api) to get an API key
+2. Replace `YOUR_API_KEY` in `app.js` with your actual API key
+3. Install a local server (like Live Server in VS Code, or http-server via npm)
+
+## Running the project
+
+1. If using VS Code:
+
+   - Install "Live Server" extension
+   - Right-click on index.html and select "Open with Live Server"
+
+2. If using http-server:
+   - Install Node.js
+   - Run `npm install -g http-server`
+   - Navigate to the project directory
+   - Run `http-server`
+   - Open `http://localhost:8080` in your browser
+
+The app should now be running locally!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
