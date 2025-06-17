@@ -20,7 +20,7 @@
   width: 90%;
   max-width: 180px;
   min-width: 0;
-  padding: 8px 12px;
+  padding: 8px 32px 8px 12px; /* right padding for icon space */
   border-radius: 12px;
   border: none;
   background: #181e2a;
@@ -29,6 +29,35 @@
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
+}
+.sidebar-search-remove {
+  position: absolute;
+  right: 10%; /* Place the button inside the input, 10px from the right edge of the input field */
+  top: 25%; /* Slightly above the center */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+  opacity: 0.7;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+.sidebar-search-remove:disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
+.sidebar-search-remove:hover:not(:disabled) {
+  opacity: 1;
 }
 .sidebar-nav {
   display: flex;
@@ -52,7 +81,55 @@
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
 }
 .nav-btn.active, .nav-btn:hover {
   background: #2d3750;
+}
+.nav-btn-loading {
+  background: #181e2a !important;
+  color: #b0b8c1;
+  cursor: wait;
+}
+.nav-btn-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #b0b8c1;
+  border-top: 2.5px solid #232b3b;
+  border-radius: 50%;
+  animation: nav-btn-spin 0.8s linear infinite;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+@keyframes nav-btn-spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+.nav-btn-progress {
+  position: relative;
+  overflow: hidden;
+  background: none;
+}
+
+.nav-btn-progress::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: calc(var(--progress, 0) * 100%);
+  background: #181e2a;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(.4,1,.4,1);
+  border-radius: 12px;
+}
+
+.nav-btn-progress:disabled {
+  color: #b0b8c1;
+  cursor: wait;
+}
+
+.nav-btn-progress span,
+.nav-btn-progress {
+  position: relative;
+  z-index: 1;
 }

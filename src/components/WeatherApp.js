@@ -68,6 +68,7 @@ function WeatherApp() {
         query={query}
         setQuery={setQuery}
         handleSearch={handleSearch}
+        loading={loading}
       />
       <WeatherMain
         weather={weather}
