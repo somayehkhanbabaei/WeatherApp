@@ -110,7 +110,7 @@
   background: #181e2a;
   border-radius: 16px;
   padding: 20px;
-  margin-top: 12px;
+  margin-top: 20px;
 }
 .cond-label {
   color: #b0b8c1;
@@ -700,7 +700,7 @@
   }
   .weather-conditions {
     padding: 48px 120px;
-    margin: 80px 120px 0 120px;
+    margin: 80px 120px 150px 120px;
     border-radius: 48px;
     font-size: 2.2rem;
   }
